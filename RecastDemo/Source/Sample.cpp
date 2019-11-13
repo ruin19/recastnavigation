@@ -169,14 +169,24 @@ void Sample::collectSettings(BuildSettings& settings)
 
 void Sample::resetCommonSettings()
 {
-	m_cellSize = 0.3f;
-	m_cellHeight = 0.2f;
-	m_agentHeight = 2.0f;
-	m_agentRadius = 0.6f;
-	m_agentMaxClimb = 0.9f;
-	m_agentMaxSlope = 45.0f;
-	m_regionMinSize = 8;
-	m_regionMergeSize = 20;
+//	m_cellSize = 0.3f;
+//	m_cellHeight = 0.2f;
+//	m_agentHeight = 2.0f;
+//	m_agentRadius = 0.6f;
+//	m_agentMaxClimb = 0.9f;
+//	m_agentMaxSlope = 45.0f;
+//	m_regionMinSize = 8;
+//	m_regionMergeSize = 20;
+    
+    m_cellSize = 19.0f;
+    m_cellHeight = 10.0f;
+    m_agentHeight = 144.0f;
+    m_agentRadius = 35.0f;
+    m_agentMaxClimb = 35.0f;
+    m_agentMaxSlope = 44.0f;
+    m_regionMinSize = 0;
+    m_regionMergeSize = 400;
+    
 	m_edgeMaxLen = 12.0f;
 	m_edgeMaxError = 1.3f;
 	m_vertsPerPoly = 6.0f;
@@ -188,8 +198,8 @@ void Sample::resetCommonSettings()
 void Sample::handleCommonSettings()
 {
 	imguiLabel("Rasterization");
-	imguiSlider("Cell Size", &m_cellSize, 0.1f, 1.0f, 0.01f);
-	imguiSlider("Cell Height", &m_cellHeight, 0.1f, 1.0f, 0.01f);
+	imguiSlider("Cell Size", &m_cellSize, 0.1f, 50.0f, 0.01f);
+	imguiSlider("Cell Height", &m_cellHeight, 0.1f, 50.0f, 0.01f);
 	
 	if (m_geom)
 	{
@@ -204,15 +214,15 @@ void Sample::handleCommonSettings()
 	
 	imguiSeparator();
 	imguiLabel("Agent");
-	imguiSlider("Height", &m_agentHeight, 0.1f, 5.0f, 0.1f);
-	imguiSlider("Radius", &m_agentRadius, 0.0f, 5.0f, 0.1f);
-	imguiSlider("Max Climb", &m_agentMaxClimb, 0.1f, 5.0f, 0.1f);
+	imguiSlider("Height", &m_agentHeight, 0.1f, 200.0f, 0.1f);
+	imguiSlider("Radius", &m_agentRadius, 0.0f, 50.0f, 0.1f);
+	imguiSlider("Max Climb", &m_agentMaxClimb, 0.1f, 50.0f, 0.1f);
 	imguiSlider("Max Slope", &m_agentMaxSlope, 0.0f, 90.0f, 1.0f);
 	
 	imguiSeparator();
 	imguiLabel("Region");
 	imguiSlider("Min Region Size", &m_regionMinSize, 0.0f, 150.0f, 1.0f);
-	imguiSlider("Merged Region Size", &m_regionMergeSize, 0.0f, 150.0f, 1.0f);
+	imguiSlider("Merged Region Size", &m_regionMergeSize, 0.0f, 600.0f, 1.0f);
 
 	imguiSeparator();
 	imguiLabel("Partitioning");
