@@ -87,7 +87,7 @@ static bool addSpan(rcHeightfield& hf, const int x, const int y,
 					const unsigned char area, const int flagMergeThr)
 {
 	
-	int idx = x + y*hf.width;
+	uint64_t idx = x + y*hf.width;
 	
 	rcSpan* s = allocSpan(hf);
 	if (!s)
