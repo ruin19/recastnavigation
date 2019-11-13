@@ -33,6 +33,8 @@ struct ConvexVolume
 
 struct BuildSettings
 {
+    //camera speed
+    float cameraSpeed;
 	// Cell size in world units
 	float cellSize;
 	// Cell height in world units

@@ -131,6 +131,7 @@ void Sample::handleMeshChanged(InputGeom* geom)
 	const BuildSettings* buildSettings = geom->getBuildSettings();
 	if (buildSettings)
 	{
+        m_cameraSpeed = buildSettings->cameraSpeed;
 		m_cellSize = buildSettings->cellSize;
 		m_cellHeight = buildSettings->cellHeight;
 		m_agentHeight = buildSettings->agentHeight;
@@ -150,6 +151,7 @@ void Sample::handleMeshChanged(InputGeom* geom)
 
 void Sample::collectSettings(BuildSettings& settings)
 {
+    settings.cameraSpeed = m_cameraSpeed;
 	settings.cellSize = m_cellSize;
 	settings.cellHeight = m_cellHeight;
 	settings.agentHeight = m_agentHeight;
@@ -169,6 +171,8 @@ void Sample::collectSettings(BuildSettings& settings)
 
 void Sample::resetCommonSettings()
 {
+    m_cameraSpeed = 22;
+    
 //	m_cellSize = 0.3f;
 //	m_cellHeight = 0.2f;
 //	m_agentHeight = 2.0f;
@@ -197,6 +201,10 @@ void Sample::resetCommonSettings()
 
 void Sample::handleCommonSettings()
 {
+    imguiLabel("Gerneral");
+    imguiSlider("Camera Speed", &m_cameraSpeed, 10.0f, 5000.0f, 1.0f);
+    imguiSeparator();
+    
 	imguiLabel("Rasterization");
 	imguiSlider("Cell Size", &m_cellSize, 0.1f, 50.0f, 0.01f);
 	imguiSlider("Cell Height", &m_cellHeight, 0.1f, 50.0f, 0.01f);

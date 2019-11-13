@@ -105,6 +105,8 @@ protected:
 	class dtCrowd* m_crowd;
 
 	unsigned char m_navMeshDrawFlags;
+    
+    float m_cameraSpeed;
 
 	float m_cellSize;
 	float m_cellHeight;
@@ -179,6 +181,8 @@ public:
 
 	void resetCommonSettings();
 	void handleCommonSettings();
+    
+    float getCameraSpeed() { return m_cameraSpeed; }
 
 private:
 	// Explicitly disabled copy constructor and copy assignment operator.
