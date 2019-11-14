@@ -640,6 +640,8 @@ void CrowdToolState::handleUpdate(const float dt)
 void CrowdToolState::addAgent(const float* p)
 {
 	if (!m_sample) return;
+    BuildSettings buildSettings;
+    m_sample->collectSettings(buildSettings);
 	dtCrowd* crowd = m_sample->getCrowd();
 	
 	dtCrowdAgentParams ap;
@@ -647,7 +649,10 @@ void CrowdToolState::addAgent(const float* p)
 	ap.radius = m_sample->getAgentRadius();
 	ap.height = m_sample->getAgentHeight();
 	ap.maxAcceleration = 8.0f;
-	ap.maxSpeed = 3.5f;
+    ap.maxSpeed = 3.5f;
+    if (buildSettings.agentSpeed > 0) {
+        ap.maxSpeed = buildSettings.agentSpeed;
+    }
 	ap.collisionQueryRange = ap.radius * 12.0f;
 	ap.pathOptimizationRange = ap.radius * 30.0f;
 	ap.updateFlags = 0; 

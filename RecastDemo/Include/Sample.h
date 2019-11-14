@@ -107,6 +107,7 @@ protected:
 	unsigned char m_navMeshDrawFlags;
     
     float m_cameraSpeed;
+    float m_agentSpeed;
 
 	float m_cellSize;
 	float m_cellHeight;

@@ -35,6 +35,8 @@ struct BuildSettings
 {
     //camera speed
     float cameraSpeed;
+    //agent speed
+    float agentSpeed;
 	// Cell size in world units
 	float cellSize;
 	// Cell height in world units
