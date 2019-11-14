@@ -649,6 +649,9 @@ void CrowdToolState::addAgent(const float* p)
 	ap.radius = m_sample->getAgentRadius();
 	ap.height = m_sample->getAgentHeight();
 	ap.maxAcceleration = 8.0f;
+    if (buildSettings.agentAcceleration > 0) {
+        ap.maxAcceleration = buildSettings.agentAcceleration;
+    }
     ap.maxSpeed = 3.5f;
     if (buildSettings.agentSpeed > 0) {
         ap.maxSpeed = buildSettings.agentSpeed;

@@ -133,6 +133,7 @@ void Sample::handleMeshChanged(InputGeom* geom)
 	{
         m_cameraSpeed = buildSettings->cameraSpeed;
         m_agentSpeed = buildSettings->agentSpeed;
+        m_agentAcceleration = buildSettings->agentAcceleration;
 		m_cellSize = buildSettings->cellSize;
 		m_cellHeight = buildSettings->cellHeight;
 		m_agentHeight = buildSettings->agentHeight;
@@ -154,6 +155,7 @@ void Sample::collectSettings(BuildSettings& settings)
 {
     settings.cameraSpeed = m_cameraSpeed;
     settings.agentSpeed = m_agentSpeed;
+    settings.agentAcceleration = m_agentAcceleration;
 	settings.cellSize = m_cellSize;
 	settings.cellHeight = m_cellHeight;
 	settings.agentHeight = m_agentHeight;
@@ -175,6 +177,7 @@ void Sample::resetCommonSettings()
 {
     m_cameraSpeed = 22;
     m_agentSpeed = 1000;
+    m_agentAcceleration = 3000;
     
 //	m_cellSize = 0.3f;
 //	m_cellHeight = 0.2f;
@@ -207,6 +210,7 @@ void Sample::handleCommonSettings()
     imguiLabel("Gerneral");
     imguiSlider("Camera Speed", &m_cameraSpeed, 10.0f, 5000.0f, 1.0f);
     imguiSlider("Agent Speed", &m_agentSpeed, 3.0f, 5000.0f, 1.0f);
+    imguiSlider("Agent Acceleration", &m_agentAcceleration, 5.0f, 5000.0f, 1.0f);
     imguiSeparator();
     
 	imguiLabel("Rasterization");
