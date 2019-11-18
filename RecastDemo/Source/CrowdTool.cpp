@@ -1092,7 +1092,9 @@ void CrowdTool::handleRenderOverlay(double* proj, double* model, int* view)
 	
 	if (m_mode == TOOLMODE_CREATE)
 	{
-		imguiDrawText(280, ty, IMGUI_ALIGN_LEFT, "LMB: add agent.  Shift+LMB: remove agent.", imguiRGBA(255,255,255,192));	
+		imguiDrawText(280, ty, IMGUI_ALIGN_LEFT, "LMB: add agent.  Shift+LMB: remove agent.", imguiRGBA(255,255,255,192));
+        ty -= 20;
+        imguiDrawText(280, ty, IMGUI_ALIGN_LEFT, "arrow up/down/left/right: move agent.", imguiRGBA(255,255,255,192));
 	}
 	else if (m_mode == TOOLMODE_MOVE_TARGET)
 	{
@@ -1112,4 +1114,36 @@ void CrowdTool::handleRenderOverlay(double* proj, double* model, int* view)
 		imguiDrawText(280, ty, IMGUI_ALIGN_LEFT, "- RUNNING -", imguiRGBA(255,32,16,255));	
 	else 
 		imguiDrawText(280, ty, IMGUI_ALIGN_LEFT, "- PAUSED -", imguiRGBA(255,255,255,128));	
+}
+
+void CrowdTool::handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight)
+{
+    if (!m_sample) return;
+    
+    dtCrowd* crowd = m_sample->getCrowd();
+
+    float vel[3];
+    // Request velocity
+    for (int i = 0; i < crowd->getAgentCount(); ++i)
+    {
+        const dtCrowdAgent* ag = crowd->getAgent(i);
+        if (!ag->active) continue;
+        float wx = ag->npos[0];
+        float wz = ag->npos[2];
+        if (walkFront) {
+            wz -= 1.0;
+        }
+        if (walkBack) {
+            wz += 1.0;
+        }
+        if (walkLeft) {
+            wx -= 1.0;
+        }
+        if (walkRight) {
+            wx += 1.0;
+        }
+        float p[3] = {wx, ag->npos[1], wz};
+        calcVel(vel, ag->npos, p, ag->params.maxSpeed);
+        crowd->requestMoveVelocity(i, vel);
+    }
 }

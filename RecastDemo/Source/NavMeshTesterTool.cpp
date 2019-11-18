@@ -1395,6 +1395,11 @@ void NavMeshTesterTool::handleRenderOverlay(double* proj, double* model, int* vi
 	imguiDrawText(280, h-40, IMGUI_ALIGN_LEFT, "LMB+SHIFT: Set start location  LMB: Set end location", imguiRGBA(255,255,255,192));	
 }
 
+void NavMeshTesterTool::handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight)
+{
+    return;
+}
+
 void NavMeshTesterTool::drawAgent(const float* pos, float r, float h, float c, const unsigned int col)
 {
 	duDebugDraw& dd = m_sample->getDebugDraw();

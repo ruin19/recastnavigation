@@ -85,6 +85,7 @@ struct SampleTool
 	virtual void handleToggle() = 0;
 	virtual void handleStep() = 0;
 	virtual void handleUpdate(const float dt) = 0;
+    virtual void handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight) = 0;
 };
 
 struct SampleToolState {
@@ -162,6 +163,7 @@ public:
 	virtual void handleMeshChanged(class InputGeom* geom);
 	virtual bool handleBuild();
 	virtual void handleUpdate(const float dt);
+    virtual void handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight);
 	virtual void collectSettings(struct BuildSettings& settings);
 
 	virtual class InputGeom* getInputGeom() { return m_geom; }

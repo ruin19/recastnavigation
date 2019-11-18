@@ -46,6 +46,7 @@ public:
 	virtual void handleUpdate(const float dt);
 	virtual void handleRender();
 	virtual void handleRenderOverlay(double* proj, double* model, int* view);
+    virtual void handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight);
 
 private:
 	// Explicitly disabled copy constructor and copy assignment operator.

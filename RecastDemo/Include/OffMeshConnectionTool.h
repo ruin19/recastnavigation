@@ -45,6 +45,7 @@ public:
 	virtual void handleUpdate(const float dt);
 	virtual void handleRender();
 	virtual void handleRenderOverlay(double* proj, double* model, int* view);
+    virtual void handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight);
 };
 
 #endif // OFFMESHCONNECTIONTOOL_H

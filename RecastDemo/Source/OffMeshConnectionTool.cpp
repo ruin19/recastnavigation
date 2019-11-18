@@ -175,3 +175,8 @@ void OffMeshConnectionTool::handleRenderOverlay(double* proj, double* model, int
 		imguiDrawText(280, h-40, IMGUI_ALIGN_LEFT, "LMB: Set connection end point and finish.", imguiRGBA(255,255,255,192));	
 	}
 }
+
+void OffMeshConnectionTool::handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight)
+{
+    
+}

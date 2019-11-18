@@ -321,3 +321,8 @@ void NavMeshPruneTool::handleRenderOverlay(double* proj, double* model, int* vie
 
 	imguiDrawText(280, h-40, IMGUI_ALIGN_LEFT, "LMB: Click fill area.", imguiRGBA(255,255,255,192));
 }
+
+void NavMeshPruneTool::handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight)
+{
+    
+}

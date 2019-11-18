@@ -244,6 +244,11 @@ void ConvexVolumeTool::handleUpdate(const float /*dt*/)
 {
 }
 
+void ConvexVolumeTool::handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight)
+{
+    
+}
+
 void ConvexVolumeTool::handleRender()
 {
 	duDebugDraw& dd = m_sample->getDebugDraw();

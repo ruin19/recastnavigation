@@ -302,6 +302,13 @@ void Sample::handleUpdate(const float dt)
 	updateToolStates(dt);
 }
 
+void Sample::handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight)
+{
+    if (m_tool) {
+        m_tool->handleWalk(walkFront, walkBack, walkLeft, walkRight);
+    }
+}
+
 
 void Sample::updateToolStates(const float dt)
 {

@@ -170,6 +170,8 @@ public:
 		const int h = view[3];
 		imguiDrawText(280, h-40, IMGUI_ALIGN_LEFT, "LMB: Rebuild hit tile.  Shift+LMB: Clear hit tile.", imguiRGBA(255,255,255,192));	
 	}
+    
+    void handleWalk(bool walkFront, bool walkBack, bool walkLeft, bool walkRight) {}
 };
 
 
